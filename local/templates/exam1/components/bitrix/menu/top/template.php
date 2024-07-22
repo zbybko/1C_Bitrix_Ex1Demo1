@@ -21,7 +21,6 @@ $this->setFrameMode(true);
 
 if (empty($arResult["ALL_ITEMS"]))
   return;
-\Bitrix\Main\Diag\Debug::writeToFile(array($arResult), 'itemTop', '1.txt');
 ?>
 
 <ul class="">

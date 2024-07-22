@@ -12,9 +12,10 @@ IncludeTemplateLangFile(__FILE__);
   <title><?= $APPLICATION->ShowTitle() ?></title>
 
   <?
-  $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/style.css');
   $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/reset.css');
+  $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/style.css');
   $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/css/owl.carousel.css');
+
   $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/jquery.min.js');
   $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/owl.carousel.min.js');
   $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scripts.js');
@@ -38,7 +39,7 @@ IncludeTemplateLangFile(__FILE__);
         if ($arDate["hours"] >= 9 && $arDate["hours"] < 18):
           ?>
           <a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
-        <? else:?>
+        <? else: ?>
           <a href="mailto:store@store.ru" class="phone">store@store.ru</a>
         <? endif; ?>
 
@@ -82,24 +83,24 @@ IncludeTemplateLangFile(__FILE__);
       <div class="menu-block popup-wrap">
         <a href="" class="btn-menu btn-toggle"></a>
         <div class="menu popup-block">
-          <? $APPLICATION->IncludeComponent(
-            "bitrix:menu",
-            "top",
-            array(
-              "ALLOW_MULTI_SELECT" => "N",
-              "CHILD_MENU_TYPE" => "top2",
-              "DELAY" => "N",
-              "MAX_LEVEL" => "3",
-              "MENU_CACHE_GET_VARS" => array(),
-              "MENU_CACHE_TIME" => "3600",
-              "MENU_CACHE_TYPE" => "A",
-              "MENU_CACHE_USE_GROUPS" => "Y",
-              "ROOT_MENU_TYPE" => "top",
-              "USE_EXT" => "Y",
-              "COMPONENT_TEMPLATE" => "top"
-            ),
-            false
-          ); ?>
+          <? $APPLICATION->IncludeComponent("bitrix:menu", "top", array(
+	"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "top2",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "3",
+		"MENU_CACHE_GET_VARS" => "",
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "top",
+		"USE_EXT" => "Y",
+		"COMPONENT_TEMPLATE" => "top"
+	),
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "Y"
+	)
+); ?>
           <a href="" class="btn-close"></a>
         </div>
         <div class="menu-overlay"></div>
@@ -115,7 +116,9 @@ IncludeTemplateLangFile(__FILE__);
       <div class="content">
         <div class="cnt">
           <? if ($APPLICATION->GetCurPage() != "/"): ?>
-            <h1><?= $APPLICATION->ShowTitle('h1') ?></h1>
+            <header>
+              <h1><?= $APPLICATION->ShowTitle('h1') ?></h1>
+            </header>
           <? else: ?>
             <p>«Мебельная компания» осуществляет производство мебели на высококлассном оборудовании с применением
               минимальной доли ручного труда, что позволяет обеспечить высокое качество нашей продукции. Налажен
