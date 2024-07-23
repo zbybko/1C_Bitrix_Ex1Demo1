@@ -1,1 +1,5 @@
-/bitrix/*
+/bitrix
+/.idea
+1.txt
+test-php.php
+/upload
