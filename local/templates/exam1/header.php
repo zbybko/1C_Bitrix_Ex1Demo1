@@ -50,29 +50,18 @@ IncludeTemplateLangFile(__FILE__);
           <input type="text" name="q" placeholder="Поиск">
           <button type="submit"></button>
         </form>
-        <nav class="menu-block">
-          <ul>
-            <li class="att popup-wrap">
-              <a id="hd_singin_but_open" href="" class="btn-toggle">Войти на сайт</a>
-              <form action="/" class="frm-login popup-block">
-                <div class="frm-title">Войти на сайт</div>
-                <a href="" class="btn-close">Закрыть</a>
-                <div class="frm-row"><input type="text" placeholder="Логин"></div>
-                <div class="frm-row"><input type="password" placeholder="Пароль"></div>
-                <div class="frm-row"><a href="" class="btn-forgot">Забыли пароль</a></div>
-                <div class="frm-row">
-                  <div class="frm-chk">
-                    <input type="checkbox" id="login">
-                    <label for="login">Запомнить меня</label>
-                  </div>
-                </div>
-                <div class="frm-row"><input type="submit" value="Войти"></div>
-              </form>
-            </li>
-            <li><a href="">Зарегистрироваться</a>
-            </li>
-          </ul>
-        </nav>
+        <? $APPLICATION->IncludeComponent(
+          "bitrix:system.auth.form",
+          "demo",
+          array(
+            "FORGOT_PASSWORD_URL" => "/login/?forgot_password=yes",
+            "PROFILE_URL" => "/login/user.php",
+            "REGISTER_URL" => "/login/?register=yes",
+            "SHOW_ERRORS" => "N",
+            "COMPONENT_TEMPLATE" => "demo"
+          ),
+          false
+        ); ?>
       </div>
     </div>
   </header>
@@ -84,23 +73,23 @@ IncludeTemplateLangFile(__FILE__);
         <a href="" class="btn-menu btn-toggle"></a>
         <div class="menu popup-block">
           <? $APPLICATION->IncludeComponent("bitrix:menu", "top", array(
-	"ALLOW_MULTI_SELECT" => "N",
-		"CHILD_MENU_TYPE" => "top2",
-		"DELAY" => "N",
-		"MAX_LEVEL" => "3",
-		"MENU_CACHE_GET_VARS" => "",
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"ROOT_MENU_TYPE" => "top",
-		"USE_EXT" => "Y",
-		"COMPONENT_TEMPLATE" => "top"
-	),
-	false,
-	array(
-	"ACTIVE_COMPONENT" => "Y"
-	)
-); ?>
+            "ALLOW_MULTI_SELECT" => "N",
+            "CHILD_MENU_TYPE" => "top2",
+            "DELAY" => "N",
+            "MAX_LEVEL" => "3",
+            "MENU_CACHE_GET_VARS" => "",
+            "MENU_CACHE_TIME" => "3600",
+            "MENU_CACHE_TYPE" => "A",
+            "MENU_CACHE_USE_GROUPS" => "Y",
+            "ROOT_MENU_TYPE" => "top",
+            "USE_EXT" => "Y",
+            "COMPONENT_TEMPLATE" => "top"
+          ),
+            false,
+            array(
+              "ACTIVE_COMPONENT" => "N"
+            )
+          ); ?>
           <a href="" class="btn-close"></a>
         </div>
         <div class="menu-overlay"></div>
