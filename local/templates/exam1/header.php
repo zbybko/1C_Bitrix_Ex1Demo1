@@ -46,8 +46,8 @@ IncludeTemplateLangFile(__FILE__);
         <div class="shedule">время работы с 9-00 до 18-00</div>
       </div>
       <div class="actions-block">
-        <form action="/" class="main-frm-search">
-          <input type="text" placeholder="Поиск">
+        <form action="/search/" class="main-frm-search" method="get">
+          <input type="text" name="q" placeholder="Поиск">
           <button type="submit"></button>
         </form>
         <nav class="menu-block">
